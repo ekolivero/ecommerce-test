@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Bash",
+      "Read",
+      "Write",
+      "Create"
+    ]
+  },
+  "allowedTools": [
+    "Bash",
+    "Create",
+    "Edit",
+    "Read",
+    "Write"
+  ],
+  "dontCrawlDirectory": false,
+  "hasTrustDialogAccepted": "true",
+  "hasCompletedProjectOnboarding": "true",
+  "ignorePatterns": []
+}
