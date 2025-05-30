@@ -41,7 +41,7 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center">
               <Image
-                src="/placeholder.svg?height=550&width=550&query=modern%20ecommerce%20hero%20image"
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=550&h=550&fit=crop&crop=center"
                 width={550}
                 height={550}
                 alt="Hero Image"
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             <Link href="/products/category/electronics" className="group relative overflow-hidden rounded-lg">
               <Image
-                src="/placeholder.svg?height=300&width=400&query=electronics%20category"
+                src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop&crop=center"
                 width={400}
                 height={300}
                 alt="Electronics"
@@ -103,7 +103,7 @@ export default function Home() {
             </Link>
             <Link href="/products/category/clothing" className="group relative overflow-hidden rounded-lg">
               <Image
-                src="/placeholder.svg?height=300&width=400&query=clothing%20category"
+                src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=300&fit=crop&crop=center"
                 width={400}
                 height={300}
                 alt="Clothing"
@@ -115,7 +115,7 @@ export default function Home() {
             </Link>
             <Link href="/products/category/home" className="group relative overflow-hidden rounded-lg">
               <Image
-                src="/placeholder.svg?height=300&width=400&query=home%20decor%20category"
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center"
                 width={400}
                 height={300}
                 alt="Home & Decor"
@@ -143,7 +143,7 @@ export default function Home() {
               <div className="flex items-center space-x-2 mb-4">
                 <div className="flex-shrink-0">
                   <Image
-                    src="/placeholder.svg?height=50&width=50&query=person%20avatar"
+                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face"
                     width={50}
                     height={50}
                     alt="Customer"
@@ -180,7 +180,7 @@ export default function Home() {
               <div className="flex items-center space-x-2 mb-4">
                 <div className="flex-shrink-0">
                   <Image
-                    src="/placeholder.svg?height=50&width=50&query=man%20avatar"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face"
                     width={50}
                     height={50}
                     alt="Customer"
@@ -217,7 +217,7 @@ export default function Home() {
               <div className="flex items-center space-x-2 mb-4">
                 <div className="flex-shrink-0">
                   <Image
-                    src="/placeholder.svg?height=50&width=50&query=woman%20avatar"
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face"
                     width={50}
                     height={50}
                     alt="Customer"

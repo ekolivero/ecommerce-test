@@ -23,13 +23,13 @@ interface DependencyGraph {
   [key: string]: string[];
 }
 
-interface ClaudeThinkingStep {
+interface CodingAgentThinkingStep {
   analysis: string;
   filesToModify: string[];
   dependentFiles: string[];
   reasoning: string;
   modificationPlan: string;
-  claudePrompt: string;
+  codingAgentPrompt: string;
 }
 
 // Load and parse the dependency graph
@@ -62,9 +62,9 @@ function findDependencies(targetFile: string, dependencyGraph: DependencyGraph):
   return dependencyGraph[targetFile] || [];
 }
 
-// THINKING STEP: Analyze what needs to be modified and format for Claude Code
-export async function analyzeForClaudeCode(request: ModificationRequest): Promise<ClaudeThinkingStep> {
-  console.log('🧠 Analyzing modification request for Claude Code execution...');
+// THINKING STEP: Analyze what needs to be modified and format for Coding Agent
+export async function analyzeForCodingAgent(request: ModificationRequest): Promise<CodingAgentThinkingStep> {
+  console.log('🧠 Analyzing modification request for Coding Agent execution...');
   
   const { userRequest, selectedElements } = request;
   const dependencyGraph = await loadDependencyGraph();
@@ -110,8 +110,8 @@ export async function analyzeForClaudeCode(request: ModificationRequest): Promis
     };
   });
 
-  // Create the Claude Code formatted prompt
-  const claudePrompt = `You are an expert React/Next.js developer and code analyst. I need you to analyze this modification request and then implement the necessary changes to the codebase.
+  // Create the Coding Agent formatted prompt
+  const codingAgentPrompt = `You are an expert React/Next.js developer and code analyst. I need you to analyze this modification request and then implement the necessary changes to the codebase.
 
 ## PROJECT CONTEXT
 This is a Next.js application with the following structure:
@@ -165,7 +165,7 @@ Please analyze this request and implement the necessary changes. Follow these st
 
 Please start by analyzing the request and then proceed with the implementation.`;
 
-  const analysis = `Analyzing ${directFiles.length} files with ${selectedElements.length} selected elements for Claude Code execution`;
+  const analysis = `Analyzing ${directFiles.length} files with ${selectedElements.length} selected elements for Coding Agent execution`;
   
   const reasoning = `
 Analysis of modification request: "${userRequest}"
@@ -180,7 +180,7 @@ ${analysisResults.map(result =>
     Dependents: ${result.dependents.length > 0 ? result.dependents.join(', ') : 'none'}`
 ).join('\n')}
 
-Claude Code will receive complete context including:
+Coding Agent will receive complete context including:
 - All file contents (${Object.keys(fileContents).length} files)
 - Dependency relationships
 - Selected element details
@@ -192,32 +192,32 @@ Claude Code will receive complete context including:
     filesToModify: directFiles,
     dependentFiles: Array.from(allRelevantFiles).filter(f => !directFiles.includes(f)),
     reasoning,
-    modificationPlan: `Claude Code will analyze and implement changes for ${directFiles.length} files based on ${selectedElements.length} selected elements`,
-    claudePrompt
+    modificationPlan: `Coding Agent will analyze and implement changes for ${directFiles.length} files based on ${selectedElements.length} selected elements`,
+    codingAgentPrompt
   };
 }
 
-// Execute Claude Code with the thinking step analysis
-export async function executeClaudeCodeWithAnalysis(request: ModificationRequest): Promise<{
+// Execute Coding Agent with the thinking step analysis
+export async function executeCodingAgentWithAnalysis(request: ModificationRequest): Promise<{
   success: boolean
   output: string
   error?: string
   sessionId?: string
   cost?: number
   duration?: number
-  thinkingStep?: ClaudeThinkingStep
+  thinkingStep?: CodingAgentThinkingStep
 }> {
-  console.log('🚀 Starting Claude Code execution with analysis...');
+  console.log('🚀 Starting Coding Agent execution with analysis...');
   
   try {
     // Step 1: Analyze the modification request
-    const thinkingStep = await analyzeForClaudeCode(request);
+    const thinkingStep = await analyzeForCodingAgent(request);
     console.log('📊 Analysis completed:', thinkingStep.analysis);
     
 
     console.log('🚀 Thinking step:', thinkingStep);
-    // Step 2: Execute Claude Code with the formatted prompt
-    const result = await executeClaudeCode(thinkingStep.claudePrompt);
+    // Step 2: Execute Coding Agent with the formatted prompt
+    const result = await executeCodingAgent(thinkingStep.codingAgentPrompt);
     
     return {
       ...result,
@@ -225,7 +225,7 @@ export async function executeClaudeCodeWithAnalysis(request: ModificationRequest
     };
     
   } catch (error) {
-    console.error('Error in Claude Code execution with analysis:', error);
+    console.error('Error in Coding Agent execution with analysis:', error);
     return {
       success: false,
       output: '',
@@ -234,7 +234,7 @@ export async function executeClaudeCodeWithAnalysis(request: ModificationRequest
   }
 }
 
-export async function executeClaudeCode(prompt: string): Promise<{
+export async function executeCodingAgent(prompt: string): Promise<{
   success: boolean
   output: string
   error?: string
@@ -242,7 +242,7 @@ export async function executeClaudeCode(prompt: string): Promise<{
   cost?: number
   duration?: number
 }> {
-  console.log('🚀 Starting Claude Code execution with prompt length:', prompt.length)
+  console.log('🚀 Starting Coding Agent execution with prompt length:', prompt.length)
   
   // Validate and sanitize the prompt
   if (!prompt || prompt.trim().length === 0) {
@@ -271,7 +271,7 @@ export async function executeClaudeCode(prompt: string): Promise<{
       stdio: ['pipe', 'pipe', 'pipe']
     })
 
-    console.log('✅ Claude Code process spawned with PID:', claudeProcess.pid)
+    console.log('✅ Coding Agent process spawned with PID:', claudeProcess.pid)
 
     // Write the prompt to stdin
     if (claudeProcess.stdin) {
@@ -330,7 +330,7 @@ export async function executeClaudeCode(prompt: string): Promise<{
           console.log('⚠️ Failed to parse JSON, returning raw output')
           resolve({
             success: true,
-            output: stdout || 'Claude Code execution completed'
+            output: stdout || 'Coding Agent execution completed'
           })
         }
       } else {
@@ -376,21 +376,21 @@ export async function executeClaudeCode(prompt: string): Promise<{
       }
     })
 
-    console.log('⏳ Waiting for claude code process to complete...')
+    console.log('⏳ Waiting for coding agent process to complete...')
   })
 }
 
-export async function testClaudeCode(): Promise<{
+export async function testCodingAgent(): Promise<{
   success: boolean
   output: string
   error?: string
 }> {
-  console.log('🧪 Testing Claude Code with simple prompt...')
+  console.log('🧪 Testing Coding Agent with simple prompt...')
   
   const testPrompt = "Hello, this is a test. Please respond with 'Test successful!'"
   
   try {
-    const result = await executeClaudeCode(testPrompt)
+    const result = await executeCodingAgent(testPrompt)
     console.log('🧪 Test result:', result)
     return result
   } catch (error) {
