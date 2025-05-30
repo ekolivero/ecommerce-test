@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import { executeClaudeCode, executeClaudeCodeWithAnalysis } from '../actions/codex';
+import { executeCodingAgent, executeCodingAgentWithAnalysis } from '../actions/codex';
 
 // Types for the metadata that the SWC plugin adds
 interface ComponentMetadata {
@@ -286,7 +286,7 @@ class InjectableToolbar {
 
       console.log('📤 Sending modification request to Claude Code:', modificationRequest);
       
-      const result = await executeClaudeCodeWithAnalysis(modificationRequest);
+      const result = await executeCodingAgentWithAnalysis(modificationRequest);
 
       console.log('✅ Claude Code execution completed, processing result...');
       // Always log the full result for debugging
