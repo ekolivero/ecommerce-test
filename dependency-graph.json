@@ -1,0 +1,133 @@
+{
+  "../components/add-to-cart-button.tsx": [
+    "../components/cart-provider.tsx",
+    "../components/ui/button.tsx",
+    "../components/ui/use-toast.ts",
+    "../lib/types.ts"
+  ],
+  "../components/cart-provider.tsx": [
+    "../lib/types.ts"
+  ],
+  "../components/footer.tsx": [],
+  "../components/header.tsx": [
+    "../components/cart-provider.tsx",
+    "../components/ui/button.tsx",
+    "../components/ui/dropdown-menu.tsx",
+    "../components/ui/input.tsx",
+    "../components/ui/sheet.tsx"
+  ],
+  "../components/product-card.tsx": [
+    "../components/cart-provider.tsx",
+    "../components/ui/button.tsx",
+    "../components/ui/use-toast.ts",
+    "../lib/types.ts"
+  ],
+  "../components/product-filters.tsx": [
+    "../components/ui/accordion.tsx",
+    "../components/ui/checkbox.tsx",
+    "../components/ui/label.tsx",
+    "../components/ui/slider.tsx"
+  ],
+  "../components/product-grid.tsx": [
+    "../components/product-card.tsx",
+    "../components/ui/button.tsx",
+    "../components/ui/dropdown-menu.tsx",
+    "../lib/types.ts"
+  ],
+  "../components/product-recommendations.tsx": [
+    "../components/product-card.tsx",
+    "../lib/products.ts"
+  ],
+  "../components/ui/accordion.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/button.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/checkbox.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/dropdown-menu.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/input.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/label.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/radio-group.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/separator.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/sheet.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/slider.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/toast.tsx": [
+    "../lib/utils.ts"
+  ],
+  "../components/ui/toaster.tsx": [
+    "../components/ui/toast.tsx",
+    "../hooks/use-toast.ts"
+  ],
+  "../components/ui/use-toast.ts": [
+    "../components/ui/toast.tsx"
+  ],
+  "../hooks/use-toast.ts": [
+    "../components/ui/toast.tsx"
+  ],
+  "../lib/products.ts": [
+    "../lib/types.ts"
+  ],
+  "../lib/types.ts": [],
+  "../lib/utils.ts": [],
+  "actions/codex.ts": [],
+  "cart/page.tsx": [
+    "../components/cart-provider.tsx",
+    "../components/ui/button.tsx"
+  ],
+  "checkout/page.tsx": [
+    "../components/cart-provider.tsx",
+    "../components/ui/button.tsx",
+    "../components/ui/input.tsx",
+    "../components/ui/label.tsx",
+    "../components/ui/radio-group.tsx",
+    "../components/ui/separator.tsx",
+    "../components/ui/use-toast.ts"
+  ],
+  "components/InjectableToolbar.tsx": [
+    "actions/codex.ts"
+  ],
+  "components/InjectableToolbarWrapper.tsx": [
+    "components/InjectableToolbar.tsx"
+  ],
+  "globals.css": [],
+  "layout.tsx": [
+    "../components/cart-provider.tsx",
+    "../components/footer.tsx",
+    "../components/header.tsx",
+    "../components/ui/toaster.tsx",
+    "components/InjectableToolbarWrapper.tsx",
+    "globals.css"
+  ],
+  "page.tsx": [
+    "../components/product-card.tsx",
+    "../components/ui/button.tsx",
+    "../lib/products.ts"
+  ],
+  "products/[id]/page.tsx": [
+    "../components/add-to-cart-button.tsx",
+    "../components/product-recommendations.tsx",
+    "../lib/products.ts"
+  ],
+  "products/page.tsx": [
+    "../components/product-filters.tsx",
+    "../components/product-grid.tsx",
+    "../lib/products.ts"
+  ]
+}
