@@ -88,7 +88,7 @@ export async function analyzeForCodingAgent(request: ModificationRequest): Promi
   // Read all relevant file contents
   for (const file of allRelevantFiles) {
     try {
-      const fullPath = path.join(process.cwd(), file.startsWith('app/') ? file : `app/${file}`);
+      const fullPath = path.join(process.cwd(), file.startsWith('app/') || file.startsWith('components/') ? file : `app/${file}`);
       const content = await fs.readFile(fullPath, 'utf-8');
       fileContents[file] = content;
     } catch (error) {
