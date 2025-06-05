@@ -24,7 +24,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-lg border">
+    <div className="group relative flex flex-col overflow-hidden rounded-lg border h-[420px]">
       <Link href={`/products/${product.id}`} className="aspect-square overflow-hidden">
         <Image
           src={product.image || "/placeholder.svg"}
@@ -35,8 +35,17 @@ export default function ProductCard({ product }: ProductCardProps) {
         />
       </Link>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="font-semibold tracking-tight">
-          <Link href={`/products/${product.id}`}>{product.name}</Link>
+        <h3 className="font-semibold tracking-tight h-12 flex items-start overflow-hidden">
+          <Link href={`/products/${product.id}`} className="leading-tight overflow-hidden"
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical' as const,
+                  overflow: 'hidden'
+                }}
+          >
+            {product.name}
+          </Link>
         </h3>
         <div className="flex items-center gap-1 text-sm text-yellow-500 mt-1">
           {[...Array(5)].map((_, i) => (
@@ -64,7 +73,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <p className="text-sm text-muted-foreground line-through">${product.oldPrice.toFixed(2)}</p>
           )}
         </div>
-        <div className="mt-4">
+        <div className="mt-auto">
           <Button size="sm" className="w-full" onClick={handleAddToCart}>
             Add to Cart
           </Button>
