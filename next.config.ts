@@ -12,12 +12,12 @@ const nextConfig: NextConfig = {
   },
   /* config options here */
   experimental: {
-    swcPlugins: [
-      [
-        path.resolve(__dirname, '../plugin/target/wasm32-wasip1/release/react_semantic_tagger.wasm'),
-        {},
-      ],
-    ],
+    // swcPlugins: [
+    //   [
+    //     path.resolve(__dirname, '../plugin/target/wasm32-wasip1/release/react_semantic_tagger.wasm'),
+    //     {},
+    //   ],
+    // ],
   },
 };
 
