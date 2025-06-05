@@ -2,7 +2,7 @@
   "../components/add-to-cart-button.tsx": [
     "../components/cart-provider.tsx",
     "../components/ui/button.tsx",
-    "../components/ui/use-toast.ts",
+    "../hooks/use-toast.ts",
     "../lib/types.ts"
   ],
   "../components/cart-provider.tsx": [
@@ -19,7 +19,7 @@
   "../components/product-card.tsx": [
     "../components/cart-provider.tsx",
     "../components/ui/button.tsx",
-    "../components/ui/use-toast.ts",
+    "../hooks/use-toast.ts",
     "../lib/types.ts"
   ],
   "../components/product-filters.tsx": [
@@ -75,7 +75,7 @@
     "../components/ui/toast.tsx",
     "../hooks/use-toast.ts"
   ],
-  "../components/ui/use-toast.ts": [
+  "../hooks/use-toast.ts": [
     "../components/ui/toast.tsx"
   ],
   "../hooks/use-toast.ts": [
@@ -98,7 +98,7 @@
     "../components/ui/label.tsx",
     "../components/ui/radio-group.tsx",
     "../components/ui/separator.tsx",
-    "../components/ui/use-toast.ts"
+    "../hooks/use-toast.ts"
   ],
   "components/InjectableToolbar.tsx": [
     "actions/codex.ts"
